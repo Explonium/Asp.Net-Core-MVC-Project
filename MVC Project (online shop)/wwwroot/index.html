@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width"/>
+    <title>User list</title>
+</head>
+<body>
+    <h2>User list</h2>
+    <!-- Form -------------------------------------->
+    <form name="userForm">
+        <!-- All inputs -------------------------------------->
+        <input type="hidden" name="id" value="0" />
+        <div class="form-row">
+            <label for="firstName">First name:</label>
+            <input class="form-input" name="firstName" />
+        </div>
+        <div class="form-row">
+            <label for="lastName">Last name:</label>
+            <input class="form-input" name="lastName" />
+        </div>
+        <!-- Buttons -------------------------------------->
+
+        <div class="form-panel">
+            <button type="submit" id="submit" class="form-button">Save</button>
+            <a id="reset" class="form-button">Reset</a>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead><tr><th>Id</th><th>First name</th><th>Last name</th></tr></thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        async function GetUsers() {
+            const response = await fetch("api/users", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok === true) {
+                const users = await response.json();
+                let rows = document.querySelector("tbody");
+                users.forEach(user => {
+                    rows.append(row(user));
+                });
+            }
+        }
+
+        async function GetUser(id) {
+            const response = await fetch("api/users/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok === true) {
+                const user = await response.json();
+                const form = document.forms["userForm"];
+                form.elements["id"].value = user.id;
+                form.elements["firstName"].value = user.firstName;
+                form.elements["lastName"].value = user.lastName;
+            }
+        }
+
+        async function CreateUser(firstName, lastName) {
+
+            const response = await fetch("api/users", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName
+                })
+            });
+
+            if (response.ok === true) {
+                const user = await response.json();
+                reset();
+                document.querySelector("tbody").append(row(user));
+            } else {
+                const errorData = await response.json();
+                console.log("errors", errorData);
+            }
+        }
+
+        async function EditUser(id, firstName, lastName) {
+            const response = await fetch("api/users", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    id: parseInt(id, 10),
+                    firstName: firstName,
+                    lastName: lastName
+                })
+            });
+
+            console.log(id);
+            
+            if (response.ok === true) {
+                const user = await response.json();
+                reset();
+                document.querySelector("tr[data-rowid='" + user.id + "']").replaceWith(row(user));
+            }
+        }
+
+        async function DeleteUser(id) {
+            const response = await fetch("api/users/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok === true) {
+                const user = await response.json();
+                document.querySelector("tr[data-rowid='" + user.id + "']").remove();
+            }
+        }
+
+        function reset() {
+            const form = document.forms["userForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+
+        function row(user) {
+            const tr = document.createElement("tr");
+            tr.setAttribute("data-rowid", user.id);
+
+            td(tr, user.id);
+            td(tr, user.firstName);
+            td(tr, user.lastName);
+
+            const tdLinks = document.createElement("td");
+
+            const editLink = document.createElement("a");
+            editLink.setAttribute("data-id", user.id);
+            editLink.setAttribute("style", "cursor:pointer; padding:15px;");
+            editLink.append("Edit");
+            editLink.addEventListener("click", e => {
+                e.preventDefault();
+                GetUser(user.id);
+            });
+
+            const removeLink = document.createElement("a");
+            removeLink.setAttribute("data-id", user.id);
+            removeLink.setAttribute("style", "cursor:pointer;");
+            removeLink.append("Delete");
+            removeLink.addEventListener("click", e => {
+                e.preventDefault();
+                DeleteUser(user.id);
+            });
+
+            tdLinks.append(editLink);
+            tdLinks.append(removeLink);
+            tr.append(tdLinks);
+
+            return tr;
+        }
+
+        function td(tr, value) {
+            const tdElement = document.createElement("td");
+            tdElement.append(value);
+            tr.append(tdElement);
+            return tdElement;
+        }
+
+        document.getElementById("reset").click(function (e) {
+            e.preventDefault();
+            reset();
+        });
+
+        document.forms["userForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["userForm"];
+            const id = form.elements["id"].value;
+            const firstName = form.elements["firstName"].value;
+            const lastName = form.elements["lastName"].value;
+
+            if (id == 0)
+                CreateUser(firstName, lastName)
+            else
+                EditUser(id, firstName, lastName);
+        });
+
+        GetUsers();
+    </script>
+</body>
+</html>

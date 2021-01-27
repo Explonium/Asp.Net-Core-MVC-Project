@@ -1,0 +1,7 @@
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.csprojAssemblyReference.cache
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.exe.config
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.AssemblyInfoInputs.cache
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.AssemblyInfo.cs
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.csproj.CoreCompileInputs.cache
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.RazorAssemblyInfo.cache
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project.Client\obj\Debug\net461\MVC Project.Client.RazorAssemblyInfo.cs
