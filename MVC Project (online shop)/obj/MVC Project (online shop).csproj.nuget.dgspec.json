@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aleksejs.zubovs\\source\\repos\\MVC Project (online shop)\\MVC Project (online shop)\\MVC Project (online shop).csproj": {}
+    "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\MVC Project (online shop)\\MVC Project (online shop).csproj": {}
   },
   "projects": {
-    "C:\\Users\\aleksejs.zubovs\\source\\repos\\MVC Project (online shop)\\MVC Project (online shop)\\MVC Project (online shop).csproj": {
+    "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\MVC Project (online shop)\\MVC Project (online shop).csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aleksejs.zubovs\\source\\repos\\MVC Project (online shop)\\MVC Project (online shop)\\MVC Project (online shop).csproj",
+        "projectUniqueName": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\MVC Project (online shop)\\MVC Project (online shop).csproj",
         "projectName": "MVC Project (online shop)",
-        "projectPath": "C:\\Users\\aleksejs.zubovs\\source\\repos\\MVC Project (online shop)\\MVC Project (online shop)\\MVC Project (online shop).csproj",
-        "packagesPath": "C:\\Users\\aleksejs.zubovs\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aleksejs.zubovs\\source\\repos\\MVC Project (online shop)\\MVC Project (online shop)\\obj\\",
+        "projectPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\MVC Project (online shop)\\MVC Project (online shop).csproj",
+        "packagesPath": "C:\\Users\\Алексей\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\MVC Project (online shop)\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aleksejs.zubovs\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Алексей\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "EntityFramework": {
               "target": "Package",
@@ -111,7 +113,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -12,6 +12,7 @@ namespace MVC_Project__online_shop_.Models
         public CategoryContext(DbContextOptions<CategoryContext> options)
             : base(options)
         {
+            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
     }

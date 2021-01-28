@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project__online_shop_.Models;
@@ -45,12 +44,10 @@ namespace MVC_Project__online_shop_.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(ViewModels.RegisterUserModel user)
+        public async Task<ActionResult<User>> PostUser(UserRegisterModel user)
         {
             if (user == null)
-            {
                 return BadRequest();
-            }
 
             // Salt
             string newUserSalt = Guid.NewGuid().ToString();
@@ -59,7 +56,10 @@ namespace MVC_Project__online_shop_.Controllers
             var sha1data = new SHA1CryptoServiceProvider().ComputeHash(data);
             string encryptedPassword = new ASCIIEncoding().GetString(sha1data);
             // User
-            User newUser = new User { Username = user.Login, Salt = newUserSalt, EncryptedPassword = encryptedPassword };
+            User newUser = new User { Username = user.Username, Email = user.Email, Salt = newUserSalt, EncryptedPassword = encryptedPassword };
+
+            if (newUser == null)
+                return BadRequest();
 
             db.Users.Add(newUser);
             await db.SaveChangesAsync();
@@ -70,14 +70,10 @@ namespace MVC_Project__online_shop_.Controllers
         public async Task<ActionResult<User>> PutUser(User user)
         {
             if (user == null)
-            {
                 return BadRequest();
-            }
 
             if (!db.Users.Any(x => x.Id == user.Id))
-            {
                 return NotFound();
-            }
 
             db.Update(user);
             await db.SaveChangesAsync();
