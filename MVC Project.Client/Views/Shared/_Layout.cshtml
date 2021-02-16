@@ -1,0 +1,22 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVC_Project.Client</title>
+</head>
+<body>
+    <partial name="_CookieConsentPartial" />
+    <header>
+        <nav>
+            <a asp-controller="Account" asp-action="Register">Register</a>
+        </nav>
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

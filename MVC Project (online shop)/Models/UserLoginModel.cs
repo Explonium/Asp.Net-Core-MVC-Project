@@ -12,6 +12,6 @@ namespace MVC_Project__online_shop_.Models
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Enter password")]
-        public string Password { get; set; }                    // Encrypted password = SHA1(Password + Salt)
+        public string Password { get; set; }
     }
 }
