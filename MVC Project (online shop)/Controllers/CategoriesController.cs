@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MVC_Project__online_shop_.Models;
+using MVC_Project__online_shop_.Data;
+using AutoMapper;
 
 namespace MVC_Project__online_shop_.Controllers
 {
@@ -14,10 +16,12 @@ namespace MVC_Project__online_shop_.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly CategoryContext db;
+        private readonly IMapper _mapper;
 
-        public CategoriesController(CategoryContext context)
+        public CategoriesController(CategoryContext context, IMapper mapper)
         {
             db = context;
+            _mapper = mapper;
 
             if (!db.Categories.Any())
             {
@@ -29,9 +33,10 @@ namespace MVC_Project__online_shop_.Controllers
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryReturnModel>>> GetCategories()
         {
-            return await db.Categories.ToListAsync();
+            var list = await db.Categories.ToListAsync();
+            return Ok(_mapper.Map<IEnumerable<CategoryReturnModel>>(list));
         }
 
         // GET: api/Categories/5
@@ -52,9 +57,9 @@ namespace MVC_Project__online_shop_.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(int id, Category category)
+        public async Task<IActionResult> PutCategory(string id, Category category)
         {
-            if (id != category.Id)
+            if (id != category.Id.ToString())
             {
                 return BadRequest();
             }
@@ -108,9 +113,9 @@ namespace MVC_Project__online_shop_.Controllers
             return category;
         }
 
-        private bool CategoryExists(int id)
+        private bool CategoryExists(string id)
         {
-            return db.Categories.Any(e => e.Id == id);
+            return db.Categories.Any(e => e.Id.ToString() == id);
         }
     }
 }

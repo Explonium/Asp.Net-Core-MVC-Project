@@ -172,19 +172,26 @@ C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (onl
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\System.Web.Http.WebHost.dll
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).csproj.CoreCompileInputs.cache
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).MvcApplicationPartsAssemblyInfo.cache
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).RazorAssemblyInfo.cache
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).RazorAssemblyInfo.cs
 C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\MVC Project (online shop).Views.dll
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\MVC Project (online shop).Views.pdb
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).TagHelpers.input.cache
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).TagHelpers.output.cache
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).RazorCoreGenerate.cache
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).RazorTargetAssemblyInfo.cs
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).Views.pdb
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.json
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Properties\serviceDependencies.local.json
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NJsonSchema.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NSwag.Annotations.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NSwag.AspNetCore.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NSwag.Core.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NSwag.Generation.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\NSwag.Generation.AspNetCore.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).csproj.CoreCompileInputs.cache
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).MvcApplicationPartsAssemblyInfo.cs
+C:\Users\aleksejs.zubovs\source\repos\MVC Project (online shop)\MVC Project (online shop)\obj\Debug\netcoreapp3.1\MVC Project (online shop).MvcApplicationPartsAssemblyInfo.cache

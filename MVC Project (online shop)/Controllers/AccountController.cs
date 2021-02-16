@@ -1,95 +1,97 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
-using MVC_Project__online_shop_.ViewModels; // пространство имен моделей RegisterModel и LoginModel
-using MVC_Project__online_shop_.Models; // пространство имен UserContext и класса User
+using System.Threading.Tasks;
+using System.Web.Http.ModelBinding;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Linq;
-using System.Text;
-using System.Security.Cryptography;
-using System;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using MVC_Project__online_shop_.Models;
 
 namespace MVC_Project__online_shop_.Controllers
 {
-    public class AccountController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AccountController : ControllerBase
     {
-        private UserContext db;
-        public AccountController(UserContext context)
+        private readonly UserManager<User> db;
+        private readonly SignInManager<User> sim;
+
+        public AccountController(UserManager<User> context, SignInManager<User> signInManager)
         {
             db = context;
+            sim = signInManager;
         }
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginUserModel model)
+        [Route("signin")]
+        public async Task<IActionResult> SignIn([FromBody] UserLoginModel credentials)
         {
-            if (ModelState.IsValid)
+            // Checking model errors
+            if (!ModelState.IsValid || credentials == null)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Username == model.Login || u.Email == model.Login);
-                if (user != null)
-                {
-                    if (user.CheckUser(model.Password))
-                    {
-                        await Authenticate(model.Login); // аутентификация
-
-                        return RedirectToAction("Index", "Home");
-                    }
-                }
-                ModelState.AddModelError("", "Incorrect username or password");
+                return new BadRequestObjectResult(new { Message = "Incorrect username or password" }); 
             }
-            return View(model);
-        }
-        [HttpGet]
-        public IActionResult Register()
-        {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterUserModel model)
-        {
-            if (ModelState.IsValid)
+
+            // Finding user
+            var identityUser = await db.FindByNameAsync(credentials.Username);
+            if (identityUser == null)
             {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Username == model.Login);
-                if (user == null)
-                {
-                    db.Users.Add(new User { Username = model.Login, Password = model.Password });
-                    await db.SaveChangesAsync();
-
-                    await Authenticate(model.Login);
-
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                    ModelState.AddModelError("", "Incorrect username or password");
+                identityUser = await db.FindByEmailAsync(credentials.Username);
+                if (identityUser == null)
+                    return new BadRequestObjectResult(new { Message = "Incorrect username or password" });
             }
-            return View(model);
-        }
 
-        private async Task Authenticate(string userName)
-        {
-            // создаем один claim
-            var claims = new List<Claim>
-            {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+            // Comparing password
+            var result = db.PasswordHasher.VerifyHashedPassword(identityUser, identityUser.PasswordHash, credentials.Password);
+            if (result == PasswordVerificationResult.Failed) 
+            { 
+                return new BadRequestObjectResult(new { Message = "Incorrect username or password" }); 
+            }
+
+            // Generating claims and identity
+            var claims = new List<Claim>
+            { 
+                new Claim(ClaimTypes.Email, identityUser.Email),
+                new Claim(ClaimTypes.Name, identityUser.UserName)
             };
-            // создаем объект ClaimsIdentity
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
-            // установка аутентификационных куки
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+            
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+            return Ok(new { Message = "You are logged in" });
         }
 
-        public async Task<IActionResult> Logout()
+        [HttpPost]
+        [Route("register")]
+        public async Task<IActionResult> Register([FromBody] UserRegisterModel userDetails)
+        {
+            if (!ModelState.IsValid || userDetails == null)
+                return new BadRequestObjectResult(new { Message = "User Registration Failed" });
+
+            var identityUser = new User() { UserName = userDetails.Username, Email = userDetails.Email };
+            var result = await db.CreateAsync(identityUser, userDetails.Password);
+            
+            if (!result.Succeeded)
+            {
+                var dictionary = new ModelStateDictionary();
+                foreach (IdentityError error in result.Errors) 
+                {
+                    dictionary.AddModelError(error.Code, error.Description);
+                }
+                return new BadRequestObjectResult(new { Message = "User Registration Failed", Errors = dictionary });
+            }
+            return Ok(new { Message = "User Reigstration Successful" });
+        }
+
+        [HttpPost]
+        [Route("signout")]
+        public async Task<IActionResult> Logout() 
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Account");
+            return Ok(new { Message = "You are logged out" });
         }
     }
 }
