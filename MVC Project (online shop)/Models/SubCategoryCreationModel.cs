@@ -16,6 +16,6 @@ namespace MVC_Project__online_shop_.Models
         public string IconPath { get; set; } = "~/icons/default_subcategory_icon.svg";
 
         [Required]
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }

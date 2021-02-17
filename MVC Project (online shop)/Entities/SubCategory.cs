@@ -13,7 +13,7 @@ namespace MVC_Project__online_shop_.Entities
 
         public string IconPath { get; set; }
 
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
         public Category Category { get; set; }

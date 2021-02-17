@@ -10,6 +10,6 @@ namespace MVC_Project__online_shop_.Models
 
         public string IconPath { get; set; }
 
-        public int CategoryId { get; set; }
+        public Guid CategoryId { get; set; }
     }
 }
