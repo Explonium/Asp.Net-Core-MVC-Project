@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Models;
 
 namespace MVC_Project__online_shop_.Data
 {
