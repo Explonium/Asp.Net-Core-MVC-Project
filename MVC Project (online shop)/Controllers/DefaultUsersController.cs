@@ -14,7 +14,7 @@ using MVC_Project__online_shop_.Models;
 
 namespace MVC_Project__online_shop_.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DefaultUsersController : ControllerBase

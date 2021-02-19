@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication;
 using System;
 using MVC_Project__online_shop_.Entities;
+using MVC_Project__online_shop_.Services;
 
 namespace MVC_Project__online_shop_
 {
@@ -24,6 +25,7 @@ namespace MVC_Project__online_shop_
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            // Contexts
             services.AddDbContext<AppDbContext>(config =>
             {
                 config.UseInMemoryDatabase("Memory");
@@ -32,12 +34,17 @@ namespace MVC_Project__online_shop_
             services.AddDbContext<CategoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CategoriesConnection")));
             services.AddDbContext<SubCategoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SubCategoriesConnection")));
 
+            // Custom services
+            services.AddTransient<IEmailService, EmailService>();
+
+            // Identity
             services.AddIdentity<User, IdentityRole>(config =>
             {
-                config.Password.RequiredLength = 4;
-                config.Password.RequireDigit = false;
+                config.Password.RequiredLength = 6;
+                config.Password.RequireDigit = true;
                 config.Password.RequireNonAlphanumeric = false;
-                config.Password.RequireUppercase = false;
+                config.Password.RequireUppercase = true;
+                config.Password.RequireLowercase = true;
                 config.User.RequireUniqueEmail = true;
                 config.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_";
                 config.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30.0);
@@ -53,11 +60,11 @@ namespace MVC_Project__online_shop_
                     options.ExpireTimeSpan = new TimeSpan(0, 1, 0); 
                 });
 
+            // Other
             services.AddControllers()
                 .AddXmlSerializerFormatters();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
             services.AddSwaggerDocument();
         }
 
