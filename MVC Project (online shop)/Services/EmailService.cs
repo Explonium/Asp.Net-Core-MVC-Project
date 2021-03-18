@@ -20,8 +20,6 @@ namespace MVC_Project__online_shop_.Services
 
             using (var client = new SmtpClient())
             {
-                client.ServerCertificateValidationCallback = (c, s, h, e) => true;
-
                 await client.ConnectAsync("smtp.gmail.com", 465, true);
                 await client.AuthenticateAsync("aleksej.zubov.01@gmail.com", "V5dRdRV542Xh");
                 await client.SendAsync(emailMessage);

@@ -14,6 +14,8 @@ namespace MVC_Project__online_shop_.Profiles
         {
             CreateMap<UserRegisterModel, User>();
             CreateMap<User, UserReturnModel>();
+            CreateMap<UserProfilePatchModel, User>();
+            CreateMap<User, UserProfilePatchModel>();
         }
     }
 }

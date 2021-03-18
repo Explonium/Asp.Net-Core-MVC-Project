@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Mvc_Project_Client.Models;
 using Mvc_Project_Client.Services;
@@ -17,6 +18,21 @@ namespace Mvc_Project_Client.Controllers
             _requestService = requestService;
         }
 
+        public async Task UpdateUserInfoAsync()
+        {
+            try
+            {
+                var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account/getMyInformation");
+                var user = await _requestService.DeserializeAsync<User>(result);
+
+                ViewData["User"] = user;
+            }
+            catch
+            {
+                ViewData["User"] = null;
+            }
+        }
+
         public IActionResult SignIn()
         {
             return View();
@@ -27,14 +43,23 @@ namespace Mvc_Project_Client.Controllers
         {
             try
             {
-                await _requestService.SendRequestAsync(HttpMethod.Post, "api/account/signin", credentials);
+                var result = await _requestService.SendRequestAsync(HttpMethod.Post, "api/account/signin", credentials);
+                await UpdateUserInfoAsync();
+
                 return RedirectToAction("Index", "Home");
             }
             catch (ApiException e)
             {
-                foreach (var error in e.ErrorsInfo.Errors)
-                    foreach (var errorMessage in error.Value)
-                        ModelState.AddModelError(error.Key, errorMessage);
+                try
+                {
+                    foreach (var error in e.ErrorsInfo.Errors)
+                        foreach (var errorMessage in error.Value)
+                            ModelState.AddModelError(error.Key, errorMessage);
+                }
+                catch
+                {
+                    ModelState.AddModelError("", e.Message);
+                }
 
                 return View();
             }
@@ -76,28 +101,34 @@ namespace Mvc_Project_Client.Controllers
                 foreach (var error in e.ErrorsInfo.Errors)
                     foreach (var errorMessage in error.Value)
                         ModelState.AddModelError(error.Key, errorMessage);
-
+                
                 return View();
             }
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> Profile()
+        {
+            await UpdateUserInfoAsync();
+            return View(ViewData["User"]);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Profile([FromForm] User user)
         {
             try
             {
-                var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account");
-                var user = await _requestService.DeserializeAsync<User>(result);
+                //JsonPatchDocument<User> userPatch = new JsonPatchDocument<User>();
+                
+                //userPatch.Replace(m => m.FirstName, user.FirstName);
+                //userPatch.Replace(m => m.LastName, user.LastName);
 
-                return View(user);
+                var result = await _requestService.SendRequestAsync(HttpMethod.Put, "api/account/updatePersonalInformation", user);
+                return RedirectToAction("Profile");
             }
             catch (ApiException e)
             {
-                //foreach (var error in e.ErrorsInfo.Errors)
-                //    foreach (var errorMessage in error.Value)
-                //        ModelState.AddModelError(error.Key, errorMessage);
-
-                return View();
+                return RedirectToAction("Profile");
             }
         }
     }

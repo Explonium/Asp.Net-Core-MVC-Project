@@ -14,62 +14,55 @@ namespace MVC_Project__online_shop_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : ControllerBase
+    public partial class CategoriesController : ControllerBase
     {
-        private readonly CategoryContext db;
+        private readonly CategoryContext _categoryDb;
         private readonly IMapper _mapper;
 
         public CategoriesController(CategoryContext context, IMapper mapper)
         {
-            db = context;
+            _categoryDb = context;
             _mapper = mapper;
-
-            if (!db.Categories.Any())
-            {
-                db.Categories.Add(new Category { Name = "Clothes" });
-                db.Categories.Add(new Category { Name = "Accessories" });
-                db.SaveChanges();
-            }
         }
 
         // GET: api/Categories
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CategoryReturnModel>>> GetCategories()
         {
-            var list = await db.Categories.ToListAsync();
-            return Ok(_mapper.Map<IEnumerable<CategoryReturnModel>>(list));
+            var list = await _categoryDb.Categories.ToListAsync();
+            return Ok(_mapper.Map<List<CategoryReturnModel>>(list));
         }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
         public async Task<ActionResult<CategoryReturnModel>> GetCategory(int id)
         {
-            var category = await db.Categories.FindAsync(id);
+            var entity = await _categoryDb.Categories.FindAsync(id);
 
-            if (category == null)
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            return _mapper.Map<CategoryReturnModel>(category);
+            return _mapper.Map<CategoryReturnModel>(entity);
         }
 
         // PUT: api/Categories/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCategory(string id, Category category)
+        public async Task<IActionResult> PutCategory(string id, Category entity)
         {
-            if (id != category.Id.ToString())
+            if (id != entity.Id.ToString())
             {
                 return BadRequest();
             }
 
-            db.Entry(category).State = EntityState.Modified;
+            _categoryDb.Entry(entity).State = EntityState.Modified;
 
             try
             {
-                await db.SaveChangesAsync();
+                await _categoryDb.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -94,8 +87,8 @@ namespace MVC_Project__online_shop_.Controllers
         {
             var categoryEntity = _mapper.Map<Category>(category);
             var categoryReturn = _mapper.Map<CategoryReturnModel>(categoryEntity);
-            db.Categories.Add(categoryEntity);
-            await db.SaveChangesAsync();
+            _categoryDb.Categories.Add(categoryEntity);
+            await _categoryDb.SaveChangesAsync();
 
             return CreatedAtAction("GetCategory", new { id = categoryEntity.Id }, categoryReturn);
         }
@@ -104,21 +97,21 @@ namespace MVC_Project__online_shop_.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<CategoryReturnModel>> DeleteCategory(int id)
         {
-            var category = await db.Categories.FindAsync(id);
-            if (category == null)
+            var entity = await _categoryDb.Categories.FindAsync(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            db.Categories.Remove(category);
-            await db.SaveChangesAsync();
+            _categoryDb.Categories.Remove(entity);
+            await _categoryDb.SaveChangesAsync();
 
-            return _mapper.Map<CategoryReturnModel>(category);
+            return _mapper.Map<CategoryReturnModel>(entity);
         }
 
         private bool CategoryExists(string id)
         {
-            return db.Categories.Any(e => e.Id.ToString() == id);
+            return _categoryDb.Categories.Any(e => e.Id.ToString() == id);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MVC_Project__online_shop_.Entities
@@ -7,9 +8,8 @@ namespace MVC_Project__online_shop_.Entities
     {
         [Key]
         public Guid Id { get; set; }
-
         public string Name { get; set; }
-
         public string IconPath { get; set; }
+        public ICollection<SubCategory> SubCategories { get; set; } = new List<SubCategory>();
     }
 }

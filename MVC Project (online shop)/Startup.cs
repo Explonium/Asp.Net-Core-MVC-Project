@@ -12,6 +12,12 @@ using Microsoft.AspNetCore.Authentication;
 using System;
 using MVC_Project__online_shop_.Entities;
 using MVC_Project__online_shop_.Services;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace MVC_Project__online_shop_
 {
@@ -32,7 +38,6 @@ namespace MVC_Project__online_shop_
             });
             services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UsersConnection")));
             services.AddDbContext<CategoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CategoriesConnection")));
-            services.AddDbContext<SubCategoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SubCategoriesConnection")));
 
             // Custom services
             services.AddTransient<IEmailService, EmailService>();
@@ -61,8 +66,12 @@ namespace MVC_Project__online_shop_
                 });
 
             // Other
-            services.AddControllers()
-                .AddXmlSerializerFormatters();
+            services.AddControllers(options =>
+            {
+                
+            })
+                .AddXmlSerializerFormatters()
+                .AddNewtonsoftJson();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSwaggerDocument();
@@ -93,6 +102,22 @@ namespace MVC_Project__online_shop_
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()
+        {
+            var builder = new ServiceCollection()
+                .AddLogging()
+                .AddMvc()
+                .AddNewtonsoftJson()
+                .Services.BuildServiceProvider();
+
+            return builder
+                .GetRequiredService<IOptions<MvcOptions>>()
+                .Value
+                .InputFormatters
+                .OfType<NewtonsoftJsonPatchInputFormatter>()
+                .First();
         }
     }
 }

@@ -27,6 +27,8 @@ namespace Mvc_Project_Client.Services
             Headers = headers;
 
             ErrorsInfo = JsonConvert.DeserializeObject<ApiErrorsModel>(response);
+            if (ErrorsInfo == null)
+                ErrorsInfo = new ApiErrorsModel();
         }
 
         public override string ToString()

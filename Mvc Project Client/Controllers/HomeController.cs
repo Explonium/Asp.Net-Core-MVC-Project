@@ -29,7 +29,7 @@ namespace Mvc_Project_Client.Controllers
 
             try
             {
-                var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account");
+                var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account/getMyInformation");
                 var user = await _requestService.DeserializeAsync<User>(result);
 
                 ViewData["User"] = user;

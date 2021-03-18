@@ -8,43 +8,16 @@ C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Mvc Project Client.pdb
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Mvc Project Client.Views.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Mvc Project Client.Views.pdb
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csprojAssemblyReference.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.AssemblyInfoInputs.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.AssemblyInfo.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csproj.CoreCompileInputs.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorAssemblyInfo.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorAssemblyInfo.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\staticwebassets\Mvc Project Client.StaticWebAssets.Manifest.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\staticwebassets\Mvc Project Client.StaticWebAssets.xml
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\scopedcss\bundle\Mvc Project Client.styles.css
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.TagHelpers.input.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.TagHelpers.output.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorCoreGenerate.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorTargetAssemblyInfo.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorTargetAssemblyInfo.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.Views.pdb
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.dll
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.pdb
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.genruntimeconfig.cache
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csproj.CopyComplete
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Marvin.StreamExtensions.dll
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
@@ -53,6 +26,7 @@ C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\System.Composition.Convention.dll
@@ -111,6 +85,34 @@ C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csprojAssemblyReference.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.AssemblyInfoInputs.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.AssemblyInfo.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csproj.CoreCompileInputs.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorAssemblyInfo.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorAssemblyInfo.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\staticwebassets\Mvc Project Client.StaticWebAssets.Manifest.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\staticwebassets\Mvc Project Client.StaticWebAssets.xml
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\scopedcss\bundle\Mvc Project Client.styles.css
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.TagHelpers.input.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.TagHelpers.output.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorCoreGenerate.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Account\SignIn.cshtml.g.cs
-C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Account\Profile.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorTargetAssemblyInfo.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.RazorTargetAssemblyInfo.cs
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.Views.pdb
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.csproj.CopyComplete
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.dll
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.pdb
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Mvc Project Client.genruntimeconfig.cache
+C:\Users\Алексей\Desktop\ASP.Net Core MVC Project\Mvc Project Client\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Categories\Default.cshtml.g.cs

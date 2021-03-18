@@ -10,7 +10,6 @@ namespace MVC_Project__online_shop_.Data
         public UserContext(DbContextOptions<UserContext> options)
             : base(options)
         {
-            Database.EnsureDeleted();
             Database.EnsureCreated();
         }
     }
