@@ -1,8 +1,8 @@
-﻿using MimeKit;
-using MailKit.Net.Smtp;
+﻿using MailKit.Net.Smtp;
+using MimeKit;
 using System.Threading.Tasks;
 
-namespace MVC_Project__online_shop_.Services
+namespace WebApplication1.Services
 {
     public class EmailService : IEmailService
     {

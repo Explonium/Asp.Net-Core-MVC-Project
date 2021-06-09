@@ -1,0 +1,42 @@
+﻿@model Mvc_Project_Client.ViewModels.ManufacturersDatabaseViewModel
+
+<form asp-controller="Database" method="post">
+    <div class="form-row align-items-center">
+        <input name="Id" type="hidden" />
+        <div class="col-auto">
+            <input name="Name" class="form-control" type="text" placeholder="Name" />
+        </div>
+        <div class="col-auto">
+            <input name="ManufacturerUri" class="form-control" type="text" placeholder="Manufacturer Uri" />
+        </div>
+        <div class="col-auto">
+            <input name="IconPath" class="form-control" type="text" placeholder="Icon Path" />
+        </div>
+        <div class="col-auto">
+            <input type="submit" class="btn btn-primary" formaction="CreateManufacturer" value="Create" />
+        </div>
+    </div>
+</form>
+
+@{
+    foreach (var manufacturer in Model.Manufacturers)
+    {
+        <form id="@manufacturer.Id" onchange="AjaxFormSubmit('@manufacturer.Id')" url="Database/UpdateManufacturer" asp-controller="Database" method="post">
+            <div class="form-row align-items-center">
+                <input name="Id" type="hidden" value="@manufacturer.Id" />
+                <div class="col-auto">
+                    <input name="Name" class="form-control" type="text" value="@manufacturer.Name" />
+                </div>
+                <div class="col-auto">
+                    <input name="ManufacturerUri" class="form-control" type="text" value="@manufacturer.ManufacturerUri" />
+                </div>
+                <div class="col-auto">
+                    <input name="IconPath" class="form-control" type="text" value="@manufacturer.IconPath" />
+                </div>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-outline-danger" formaction="DeleteManufacturer" value="Delete" />
+                </div>
+            </div>
+        </form>
+    }
+}

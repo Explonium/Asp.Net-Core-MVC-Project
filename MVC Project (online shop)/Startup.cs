@@ -1,25 +1,20 @@
-using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using MVC_Project__online_shop_.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.Extensions.Configuration;
-using MVC_Project__online_shop_.Data;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication;
-using System;
-using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using WebApplication1.Data;
+using WebApplication1.Entities;
+using WebApplication1.Services;
+using System;
 using System.Linq;
-using Newtonsoft.Json;
 
-namespace MVC_Project__online_shop_
+namespace WebApplication1
 {
     public class Startup
     {
@@ -31,13 +26,24 @@ namespace MVC_Project__online_shop_
         public IConfiguration Configuration { get; }
         public void ConfigureServices(IServiceCollection services)
         {
+            var options = new DbContextOptionsBuilder<MvcProjectContext>()
+                    .UseSqlServer(Configuration.GetConnectionString("AppConnection"))
+                    .Options;
+            var context = new MvcProjectContext(options);
+
+            context.Database.OpenConnection(); // this is where exception is thrown
+            context.Database.EnsureCreated();
+
             // Contexts
-            services.AddDbContext<AppDbContext>(config =>
-            {
-                config.UseInMemoryDatabase("Memory");
-            });
-            services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UsersConnection")));
-            services.AddDbContext<CategoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CategoriesConnection")));
+            services.AddDbContext<AppDbContext>(
+                options => options.UseSqlServer(Configuration.GetConnectionString("AppConnection"))
+            );
+
+            services.AddDbContext<MvcProjectContext>(
+                options => options.UseSqlite("DataSource=:memory:")
+            );
+
+            //services.AddDbContext<UserContext>(options => options.UseSqlServer(Configuration.GetConnectionString("UsersConnection")));
 
             // Custom services
             services.AddTransient<IEmailService, EmailService>();
@@ -59,16 +65,16 @@ namespace MVC_Project__online_shop_
                 .AddDefaultTokenProviders();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options => 
-                { 
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+                {
                     options.SlidingExpiration = true;
-                    options.ExpireTimeSpan = new TimeSpan(0, 1, 0); 
+                    options.ExpireTimeSpan = new TimeSpan(0, 1, 0);
                 });
 
             // Other
             services.AddControllers(options =>
             {
-                
+
             })
                 .AddXmlSerializerFormatters()
                 .AddNewtonsoftJson();

@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MVC_Project__online_shop_.Entities
+namespace WebApplication1.Entities
 {
     public class Product
     {
         [Key]
         public Guid Id { get; set; }
+        public string Name { get; set; }
+        public string VendorUserName { get; set; }
+
+        [ForeignKey("VendorUserName")]
+        public Vendor Vendor { get; set; }
 
         public Guid SubCategoryId { get; set; }
 
@@ -20,6 +26,7 @@ namespace MVC_Project__online_shop_.Entities
         [ForeignKey("ManufacturerId")]
         public Manufacturer Manufacturer { get; set; }
 
-        public IList Tags { get; set; }
+        public string Tags { get; set; }
+        public ICollection<ProductVariant> ProductVariants { get; set; } = new List<ProductVariant>();
     }
 }

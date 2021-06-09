@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Mvc_Project_Client.Models
 {
@@ -16,9 +13,8 @@ namespace Mvc_Project_Client.Models
         public bool TwoFactorEnabled { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Country { get; set; }
-
-        public string City { get; set; }
+        public Guid? CityId { get; set; }
+        public Guid? CountryId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string PostalIndex { get; set; }

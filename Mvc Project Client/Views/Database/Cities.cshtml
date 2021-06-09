@@ -1,0 +1,44 @@
+﻿@model Mvc_Project_Client.ViewModels.CitiesDatabaseViewModel
+
+@await Component.InvokeAsync("Datalist", new { id = "Countries" })
+
+<form asp-controller="Database" method="post">
+    <div class="form-row align-items-center">
+        <input name="Id" type="hidden" />
+        <div class="col-auto">
+            <input name="Name" class="form-control" placeholder="Name" type="text" />
+        </div>
+
+        <div class="col-auto">
+            <input list="Countries" id="country" onchange="updateDataList(this)" class="form-control" placeholder="Country" />
+
+            <input type="hidden" name="CountryId" id="country-hidden" />
+        </div>
+        <div class="col-auto">
+            <input type="submit" class="btn btn-primary" formaction="CreateCity" value="Create" />
+        </div>
+    </div>
+</form>
+
+@{
+    foreach (var city in Model.Cities)
+    {
+        <form id="@city.Id" onchange="AjaxFormSubmit('@city.Id')" url="Database/UpdateCity" method="post">
+            <div class="form-row align-items-center">
+                <input name="Id" type="hidden" value="@city.Id" />
+                <div class="col-auto">
+                    <input name="Name" class="form-control" type="text" value="@city.Name" />
+                </div>
+
+                <div class="col-auto">
+                    <input list="Countries" id="@city.Id country" onchange="updateDataList(this)" class="form-control" placeholder="Country" value="@Model.Countries.FirstOrDefault(p => p.Key == city.CountryId.ToString()).Value" />
+                    <input type="hidden" name="CountryId" id="@city.Id country-hidden" value="@city.CountryId" />
+                </div>
+
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-outline-danger" formaction="DeleteCity" value="Delete" />
+                </div>
+            </div>
+        </form>
+    }
+}

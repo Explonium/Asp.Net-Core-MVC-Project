@@ -1,10 +1,5 @@
 ﻿using Mvc_Project_Client.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Mvc_Project_Client.Services
 {
@@ -17,7 +12,7 @@ namespace Mvc_Project_Client.Services
 
         public System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> Headers { get; private set; }
 
-        public ApiErrorsModel ErrorsInfo { get; set; }
+        public ApiExceptionDetailsModel ErrorsInfo { get; set; }
 
         public ApiException(string message, int statusCode, string response, System.Collections.Generic.IReadOnlyDictionary<string, System.Collections.Generic.IEnumerable<string>> headers, System.Exception innerException)
             : base(message + "\n\nStatus: " + statusCode + "\nResponse: \n" + ((response == null) ? "(null)" : response.Substring(0, response.Length >= 512 ? 512 : response.Length)), innerException)
@@ -26,9 +21,9 @@ namespace Mvc_Project_Client.Services
             Response = response;
             Headers = headers;
 
-            ErrorsInfo = JsonConvert.DeserializeObject<ApiErrorsModel>(response);
+            ErrorsInfo = JsonConvert.DeserializeObject<ApiExceptionDetailsModel>(response);
             if (ErrorsInfo == null)
-                ErrorsInfo = new ApiErrorsModel();
+                ErrorsInfo = new ApiExceptionDetailsModel();
         }
 
         public override string ToString()

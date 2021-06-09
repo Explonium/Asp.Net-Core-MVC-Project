@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Marvin.StreamExtensions;
+using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -6,23 +8,30 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
-using Marvin.StreamExtensions;
 
 namespace Mvc_Project_Client.Services
 {
     public class RequestService : IRequestService
     {
         private static HttpClient _httpClient;
+        private readonly IConfiguration _configuration;
 
-        public RequestService()
+        public RequestService(IConfiguration configuration)
         {
+            _configuration = configuration;
+
             if (_httpClient == null)
             {
                 _httpClient = new HttpClient();
-                _httpClient.BaseAddress = new Uri("https://localhost:51044");
+                _httpClient.BaseAddress = new Uri(_configuration["ApiUrl"]);
                 _httpClient.Timeout = new TimeSpan(0, 0, 30);
                 _httpClient.DefaultRequestHeaders.Clear();
             }
+        }
+
+        public async Task Delete(string path, string id)
+        {
+            await SendRequestAsync(HttpMethod.Delete, _configuration["Routes:" + path] + id);
         }
 
         public async Task<T> DeserializeAsync<T>(HttpResponseMessage response)
@@ -30,6 +39,29 @@ namespace Mvc_Project_Client.Services
             response.EnsureSuccessStatusCode();
             var stream = await response.Content.ReadAsStreamAsync();
             return stream.ReadAndDeserializeFromJson<T>();
+        }
+
+        public async Task<T> Get<T>(string path, string id = "")
+        {
+            var response = await SendRequestAsync(HttpMethod.Get, _configuration["Routes:" + path] + id);
+            return await DeserializeAsync<T>(response);
+        }
+
+        public async Task<ICollection<T>> GetList<T>(string path)
+        {
+            var response = await SendRequestAsync(HttpMethod.Get, _configuration["Routes:" + path]);
+            return await DeserializeAsync<List<T>>(response);
+        }
+
+        public async Task<T> Post<T>(string path, T obj)
+        {
+            var response = await SendRequestAsync(HttpMethod.Post, _configuration["Routes:" + path], obj);
+            return await DeserializeAsync<T>(response);
+        }
+
+        public async Task Put<T>(string path, T obj, string id)
+        {
+            await SendRequestAsync(HttpMethod.Put, _configuration["Routes:" + path] + id, obj);
         }
 
         public async Task<HttpResponseMessage> SendRequestAsync(HttpMethod method, string address, object obj = null)
@@ -67,7 +99,7 @@ namespace Mvc_Project_Client.Services
             }
 
             var status = (int)response.StatusCode;
-            if (status != 200 && status != 206)
+            if (status != 200 && status != 201 && status != 204 && status != 206)
             {
                 var responseData = response.Content == null ? null : await response.Content.ReadAsStringAsync().ConfigureAwait(false);
                 //throw new Exception(responseData);

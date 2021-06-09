@@ -1,0 +1,49 @@
+﻿@model Mvc_Project_Client.ViewModels.CurrenciesDatabaseViewModel;
+
+
+<form asp-controller="Database" method="post">
+    <div class="form-row align-items-center">
+        <input name="Id" type="hidden" />
+        <div class="col-auto">
+            <input name="Name" class="form-control" type="text" placeholder="Name" />
+        </div>
+        <div class="col-auto">
+            <input name="ShortName" class="form-control" type="text" placeholder="ShortName" />
+        </div>
+        <div class="col-auto">
+            <input name="Symbol" class="form-control" type="text" placeholder="Symbol" />
+        </div>
+        <div class="col-auto">
+            <input name="Cost" class="form-control" type="number" step="0.01" placeholder="Cost" />
+        </div>
+        <div class="col-auto">
+            <input type="submit" class="btn btn-primary" formaction="CreateCurrency" value="Create" />
+        </div>
+    </div>
+</form>
+
+@{
+    foreach (var currency in Model.Currencies)
+    {
+        <form id="@currency.Id" onchange="AjaxFormSubmit('@currency.Id')" url="Database/UpdateCurrency" asp-controller="Database" method="post">
+            <div class="form-row align-items-center">
+                <input name="Id" type="hidden" value="@currency.Id" />
+                <div class="col-auto">
+                    <input name="Name" class="form-control" type="text" value="@currency.Name" />
+                </div>
+                <div class="col-auto">
+                    <input name="ShortName" class="form-control" type="text" value="@currency.ShortName" />
+                </div>
+                <div class="col-auto">
+                    <input name="Symbol" class="form-control" type="text" value="@currency.Symbol" />
+                </div>
+                <div class="col-auto">
+                    <input name="Cost" class="form-control" type="number" step="0.01" value="@currency.Cost" />
+                </div>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-outline-danger" formaction="DeleteCurrency" value="Delete" />
+                </div>
+            </div>  
+        </form>
+    }
+}

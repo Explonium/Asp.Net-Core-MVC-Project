@@ -1,21 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web.Http.ModelBinding;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Models;
-using MVC_Project__online_shop_.Services;
+using System.Threading.Tasks;
 
-namespace MVC_Project__online_shop_.Controllers
+namespace WebApplication1.Controllers
 {
     public partial class AccountController
     {
@@ -35,7 +23,7 @@ namespace MVC_Project__online_shop_.Controllers
                 new { userId = user.Id, code = code },
                 protocol: HttpContext.Request.Scheme);
 
-            await _emailService.SendEmailAsync(user.Email, "Confirm your email", 
+            await _emailService.SendEmailAsync(user.Email, "Confirm your email",
                 $"<h3>Dear {user.UserName}!</h3>" +
                 $"<p>Your email address was entered in registration form or has been changed in MVC Project profile page!<br>" +
                 $"To confirm your email, you need to follow confirmation link.</p>" +

@@ -5,11 +5,11 @@
     },
     "mssql1": {
       "type": "mssql",
-      "connectionId": "CategoriesConnection"
+      "connectionId": "AppConnection"
     },
     "mssql2": {
       "type": "mssql",
-      "connectionId": "UsersConnection"
+      "connectionId": "MvcProjectConnection"
     }
   }
 }

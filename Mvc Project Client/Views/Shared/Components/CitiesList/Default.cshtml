@@ -1,0 +1,8 @@
+﻿@model List<Mvc_Project_Client.Models.CitiesListModel>
+
+<datalist id="Cities">
+    @foreach (var item in Model)
+    {
+        <option data-value="@item.Id" filter-value="@item.CountryId">@item.Name</option>
+    }
+</datalist>

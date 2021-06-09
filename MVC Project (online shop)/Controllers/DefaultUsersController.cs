@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Models;
+using WebApplication1.Entities;
+using System.Threading.Tasks;
 
-namespace MVC_Project__online_shop_.Controllers
+namespace WebApplication1.Controllers
 {
     //[Authorize]
     [Route("api/[controller]")]

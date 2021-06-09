@@ -1,0 +1,66 @@
+﻿@model Mvc_Project_Client.ViewModels.SubCategoriesDatabaseViewModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<form asp-controller="Database" method="post">
+    <div class="form-row align-items-center">
+        <input name="Id" type="hidden" />
+        <div class="col-auto">
+            <select name="CategoryId" class="form-control">
+                @foreach (var category in Model.Categories)
+                {
+                    <option value="@category.Id">@category.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-auto">
+            <input name="Name" class="form-control" type="text" />
+        </div>
+        <div class="col-auto">
+            <input name="IconPath" class="form-control" type="text" />
+        </div>
+        <div class="col-auto">
+            <input type="submit" class="btn btn-primary" formaction="CreateSubCategory" value="Create" />
+        </div>
+    </div>
+</form>
+
+@{
+    foreach (var subcategory in Model.SubCategories)
+    {
+        <form id="@subcategory.Id" onchange="AjaxFormSubmit('@subcategory.Id')" url="Database/UpdateSubCategory" method="post">
+            <div class="form-row align-items-center">
+                <input name="Id" type="hidden" value="@subcategory.Id" />
+                <div class="col-auto">
+                    <select name="CategoryId" class="form-control">
+                        @foreach (var category in Model.Categories)
+                        {
+                            @if (category.Id == subcategory.CategoryId)
+                            {
+                                <option value="@category.Id" selected>@category.Name</option>
+                            }
+                            else
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+
+
+                        }
+                    </select>
+                </div>
+                <div class="col-auto">
+                    <input name="Name" class="form-control" type="text" value="@subcategory.Name" />
+                </div>
+                <div class="col-auto">
+                    <input name="IconPath" class="form-control" type="text" value="@subcategory.IconPath" />
+                </div>
+                <div class="col-auto">
+                    <input type="submit" class="btn btn-outline-danger" formaction="DeleteSubCategory" value="Delete" />
+                </div>
+            </div>
+        </form>
+    }
+}

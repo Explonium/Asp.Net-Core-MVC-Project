@@ -50,6 +50,9 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Profile">Profile</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Database" asp-action="Index">Database</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="SignOut">Sign out</a>
                                 </li>
                             </ul>
@@ -74,6 +77,68 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        function AjaxFormSubmit(formId, successLblId) {
+            //Set the URL.
+            var form = document.getElementById(formId);
+            var url = "https://localhost:44372/" + $("#" + formId).attr("url");
+
+            //Add the Field values to FormData object.
+            var formData = new FormData(form);
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: formData,
+                processData: false,
+                contentType: false
+            }).done(function (response) {
+                if (response.Status === "success") {
+                    $(successLblId).html(response.Name);
+                }
+            });
+        }
+
+        function giveSelection(value, selId) {
+
+            var sel = document.getElementById(selId);
+            var sel_f = document.getElementById(selId + '-Filtered');
+            var options = sel.querySelectorAll('option');
+
+            sel_f.innerHTML = '';
+
+            console.log('Filtering, ' + value);
+
+            // Filtering select/dropdown
+            for (var i = 0; i < options.length; i++) {
+                if (options[i].getAttribute('filter-value') === value) {
+                    sel_f.appendChild(options[i]);
+                }
+            }
+        }
+
+        function updateDataList(input) {
+
+            var list = input.getAttribute('list'),
+                options = document.querySelectorAll('#' + list + ' option'),
+                hiddenInput = document.getElementById(input.getAttribute('id') + '-hidden'),
+                inputValue = input.value;
+
+            hiddenInput.value = inputValue;
+
+            for (var i = 0; i < options.length; i++) {
+                var option = options[i];
+
+                if (option.innerText === inputValue) {
+                    hiddenInput.value = option.getAttribute('data-value');
+                    break;
+                }
+            }
+        }
+
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

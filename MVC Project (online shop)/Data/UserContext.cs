@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MVC_Project__online_shop_.Entities;
+using WebApplication1.Entities;
 
-namespace MVC_Project__online_shop_.Data
+namespace WebApplication1.Data
 {
     public class UserContext : DbContext
     {

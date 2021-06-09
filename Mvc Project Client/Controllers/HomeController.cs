@@ -3,10 +3,7 @@ using Microsoft.Extensions.Logging;
 using Mvc_Project_Client.Models;
 using Mvc_Project_Client.Services;
 using Mvc_Project_Client.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -29,13 +26,13 @@ namespace Mvc_Project_Client.Controllers
 
             try
             {
-                var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account/getMyInformation");
-                var user = await _requestService.DeserializeAsync<User>(result);
+               // var result = await _requestService.SendRequestAsync(HttpMethod.Get, "api/account/getMyInformation");
+                //var user = await _requestService.Get<User>("MyInformation");
 
-                ViewData["User"] = user;
-                model.User = user;
+                model.User = await _requestService.Get<User>("MyInformation");
+                ViewData["User"] = model.User;
             }
-            catch{ }
+            catch { }
 
             return View(model);
         }

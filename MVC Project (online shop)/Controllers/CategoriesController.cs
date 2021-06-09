@@ -1,36 +1,44 @@
-﻿using System;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using WebApplication1.Data;
+using WebApplication1.Entities;
+using WebApplication1.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using MVC_Project__online_shop_.Models;
-using MVC_Project__online_shop_.Data;
-using AutoMapper;
-using MVC_Project__online_shop_.Entities;
 
-namespace MVC_Project__online_shop_.Controllers
+namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public partial class CategoriesController : ControllerBase
     {
-        private readonly CategoryContext _categoryDb;
+        private readonly MvcProjectContext _categoryDb;
         private readonly IMapper _mapper;
 
-        public CategoriesController(CategoryContext context, IMapper mapper)
+        public CategoriesController(MvcProjectContext context, IMapper mapper)
         {
             _categoryDb = context;
             _mapper = mapper;
+
+            if (!_categoryDb.Categories.Any())
+            {
+                _ = PostCategory(new CategoryCreationModel { Name = "Electronics" });
+                _ = PostCategory(new CategoryCreationModel { Name = "Home" });
+                _ = PostCategory(new CategoryCreationModel { Name = "Sports" });
+                _ = PostCategory(new CategoryCreationModel { Name = "Clothes" });
+                _ = PostCategory(new CategoryCreationModel { Name = "Education" });
+                _ = PostCategory(new CategoryCreationModel { Name = "Transport" });
+            }
         }
 
         // GET: api/Categories
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryReturnModel>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
         {
             var list = await _categoryDb.Categories.ToListAsync();
-            return Ok(_mapper.Map<List<CategoryReturnModel>>(list));
+            return Ok(list);
         }
 
         // GET: api/Categories/5
@@ -95,9 +103,9 @@ namespace MVC_Project__online_shop_.Controllers
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<CategoryReturnModel>> DeleteCategory(int id)
+        public async Task<ActionResult<Category>> DeleteCategory(string id)
         {
-            var entity = await _categoryDb.Categories.FindAsync(id);
+            var entity = await _categoryDb.Categories.FirstOrDefaultAsync(p => p.Id.ToString() == id);
             if (entity == null)
             {
                 return NotFound();
@@ -106,7 +114,7 @@ namespace MVC_Project__online_shop_.Controllers
             _categoryDb.Categories.Remove(entity);
             await _categoryDb.SaveChangesAsync();
 
-            return _mapper.Map<CategoryReturnModel>(entity);
+            return Ok(entity);
         }
 
         private bool CategoryExists(string id)

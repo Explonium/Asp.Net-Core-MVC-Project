@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace MVC_Project__online_shop_.Models
+namespace WebApplication1.Models
 {
     public class UserProfilePatchModel
     {
@@ -11,8 +8,7 @@ namespace MVC_Project__online_shop_.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
+        public Guid CityId { get; set; }
         public string AddressLine1 { get; set; }
         public string AddressLine2 { get; set; }
         public string PostalIndex { get; set; }

@@ -1,0 +1,27 @@
+﻿@model Mvc_Project_Client.ViewModels.CategoriesDatabaseViewModel;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<div class="row m-2">
+    <form asp-controller="Database" method="post">
+        <input name="Id" type="hidden" />
+        <input name="Name" type="text" />
+        <input name="IconPath" type="text" />
+        <input type="submit" class="btn btn-primary" formaction="CreateCategory" value="Create" />
+    </form>
+</div>
+
+@{
+    foreach (var category in Model.Categories)
+    {
+    <div class="row m-2">
+        <form id="@category.Id" onchange="AjaxFormSubmit('@category.Id')" url="Database/UpdateCategory" asp-controller="Database" method="post">
+            <input name="Id" type="hidden" value="@category.Id" />
+            <input name="Name" type="text" value="@category.Name" />
+            <input name="IconPath" type="text" value="@category.IconPath" />
+            <input type="submit" class="btn btn-outline-danger" formaction="DeleteCategory" value="Delete" />
+        </form>
+    </div>
+    }
+}

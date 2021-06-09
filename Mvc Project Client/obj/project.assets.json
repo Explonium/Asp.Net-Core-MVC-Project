@@ -261,7 +261,7 @@
           "lib/netstandard2.0/Microsoft.AspNetCore.HttpsPolicy.dll": {}
         }
       },
-      "Microsoft.AspNetCore.JsonPatch/5.0.3": {
+      "Microsoft.AspNetCore.JsonPatch/5.0.6": {
         "type": "package",
         "dependencies": {
           "Microsoft.CSharp": "4.7.0",
@@ -2708,10 +2708,10 @@
         "microsoft.aspnetcore.httpspolicy.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.JsonPatch/5.0.3": {
-      "sha512": "trnJsR/teqqOgXFFFSn5YbL6ZCXca421Jv5hDRPuV2K+resek6u0+jf1aAwXZgikDmt2lylEKg6nkS3v5szhRQ==",
+    "Microsoft.AspNetCore.JsonPatch/5.0.6": {
+      "sha512": "mLVtFR/wxJaWeHxBm7S+WoDGcYfE3Q9Tkf6m/BWzaZn2fWuTl3ojY3m6rDIBkPj2hGcgBvCnVmyYH5R2fkN+Aw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.jsonpatch/5.0.3",
+      "path": "microsoft.aspnetcore.jsonpatch/5.0.6",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2721,7 +2721,7 @@
         "lib/net461/Microsoft.AspNetCore.JsonPatch.xml",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll",
         "lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.xml",
-        "microsoft.aspnetcore.jsonpatch.5.0.3.nupkg.sha512",
+        "microsoft.aspnetcore.jsonpatch.5.0.6.nupkg.sha512",
         "microsoft.aspnetcore.jsonpatch.nuspec"
       ]
     },
@@ -7729,26 +7729,31 @@
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.2.0",
       "Microsoft.AspNetCore.CookiePolicy >= 2.2.8",
       "Microsoft.AspNetCore.HttpsPolicy >= 2.2.0",
-      "Microsoft.AspNetCore.JsonPatch >= 5.0.3",
+      "Microsoft.AspNetCore.JsonPatch >= 5.0.6",
       "Microsoft.AspNetCore.Mvc.Core >= 2.2.5",
       "Microsoft.AspNetCore.StaticFiles >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Алексей\\.nuget\\packages\\": {}
+    "C:\\Users\\Алексей\\.nuget\\packages\\": {},
+    "D:\\VisualStudio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
-      "projectName": "Mvc Project Client",
-      "projectPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
+      "projectUniqueName": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\MvcProjectClient.csproj",
+      "projectName": "MvcProjectClient",
+      "projectPath": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\MvcProjectClient.csproj",
       "packagesPath": "C:\\Users\\Алексей\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\obj\\",
+      "outputPath": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\VisualStudio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Алексей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7792,7 +7797,7 @@
           },
           "Microsoft.AspNetCore.JsonPatch": {
             "target": "Package",
-            "version": "[5.0.3, )"
+            "version": "[5.0.6, )"
           },
           "Microsoft.AspNetCore.Mvc.Core": {
             "target": "Package",
@@ -7825,7 +7830,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

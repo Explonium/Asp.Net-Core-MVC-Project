@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj": {}
+    "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\Mvc Project Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj": {
+    "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\Mvc Project Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
+        "projectUniqueName": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
         "projectName": "Mvc Project Client",
-        "projectPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
+        "projectPath": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
         "packagesPath": "C:\\Users\\Алексей\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\obj\\",
+        "outputPath": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\VisualStudio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Алексей\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,7 +62,7 @@
             },
             "Microsoft.AspNetCore.JsonPatch": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.AspNetCore.Mvc.Core": {
               "target": "Package",
@@ -91,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

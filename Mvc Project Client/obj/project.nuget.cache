@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "L5nVqmezlQKZ+jsZal7jpZ+GMOPPW0J2z1E6tNGoVklN1eyqWXUNM4ecH2Rd1r34n5dnMbxpVWr4UjHRdDneHQ==",
+  "dgSpecHash": "QSO7H/QCzmQIvQKYuZVuOaml09iH2cYcvIxu+8q301hCBmq6sjLdisp66RBxnRTNOFEnL4AXIw/POeUEy2R6VA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Алексей\\Desktop\\ASP.Net Core MVC Project\\Mvc Project Client\\Mvc Project Client.csproj",
+  "projectFilePath": "C:\\Users\\Алексей\\Desktop\\MVC Project\\Mvc Project Client\\MvcProjectClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Алексей\\.nuget\\packages\\marvin.streamextensions\\1.2.0\\marvin.streamextensions.1.2.0.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
@@ -23,7 +23,7 @@
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.httpspolicy\\2.2.0\\microsoft.aspnetcore.httpspolicy.2.2.0.nupkg.sha512",
-    "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.3\\microsoft.aspnetcore.jsonpatch.5.0.3.nupkg.sha512",
+    "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.6\\microsoft.aspnetcore.jsonpatch.5.0.6.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.mvc.core\\2.2.5\\microsoft.aspnetcore.mvc.core.2.2.5.nupkg.sha512",
     "C:\\Users\\Алексей\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",

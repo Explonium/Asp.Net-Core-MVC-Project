@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web.Http.ModelBinding;
-using AutoMapper;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Models;
-using MVC_Project__online_shop_.Services;
+//using Microsoft.AspNetCore.Mvc.ModelBinding;
+using WebApplication1.Entities;
+using WebApplication1.Models;
+using WebApplication1.Services;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web.Http.ModelBinding;
 
-namespace MVC_Project__online_shop_.Controllers
+namespace WebApplication1.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -55,7 +51,7 @@ namespace MVC_Project__online_shop_.Controllers
         {
             // Checking model errors
             if (!ModelState.IsValid || credentials == null)
-                return new BadRequestObjectResult(new { Message = "Incorrect username or password" }); 
+                return new BadRequestObjectResult(new { Message = "Incorrect username or password" });
 
             // Finding user
             var identityUser = await db.FindByNameAsync(credentials.Username);
@@ -84,11 +80,11 @@ namespace MVC_Project__online_shop_.Controllers
 
             var identityUser = new User() { UserName = userDetails.Username, Email = userDetails.Email };
             var result = await db.CreateAsync(identityUser, userDetails.Password);
-            
+
             if (!result.Succeeded)
             {
                 var dictionary = new ModelStateDictionary();
-                foreach (IdentityError error in result.Errors) 
+                foreach (IdentityError error in result.Errors)
                 {
                     dictionary.AddModelError(error.Code, error.Description);
                 }
@@ -99,7 +95,7 @@ namespace MVC_Project__online_shop_.Controllers
 
         [HttpPost]
         [Route("signout")]
-        public async Task<IActionResult> Logout() 
+        public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return Ok(new { Message = "You are logged out" });

@@ -1,11 +1,10 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MVC_Project__online_shop_.Entities;
-using MVC_Project__online_shop_.Models;
+using WebApplication1.Entities;
+using WebApplication1.Models;
+using System.Threading.Tasks;
 
-namespace MVC_Project__online_shop_.Controllers
+namespace WebApplication1.Controllers
 {
     public partial class AccountController
     {
@@ -37,18 +36,16 @@ namespace MVC_Project__online_shop_.Controllers
             return Ok(user);
         }
 
-        [Route("updatePersonalInformation")]
-        [HttpPatch]
+        [Route("updatePersonalInfo")]
+        [HttpPut]
         [Authorize]
-        public async Task<ActionResult<User>> PatchPersonalData([FromBody] JsonPatchDocument<UserProfilePatchModel> patchEntity)
+        public async Task<ActionResult<User>> PutContactInfo([FromBody] UserProfilePersonalInfo updateEntity)
         {
             var user = await db.GetUserAsync(sim.Context.User);
             if (user == null)
                 return NotFound("This user doesn't exist");
 
-            var patchedUser = _mapper.Map<UserProfilePatchModel>(user);
-            patchEntity.ApplyTo(patchedUser);
-            _mapper.Map(patchedUser, user);
+            user = _mapper.Map(updateEntity, user);
 
             await db.UpdateAsync(user);
 

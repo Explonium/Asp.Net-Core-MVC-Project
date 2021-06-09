@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace MVC_Project__online_shop_.Entities
+namespace WebApplication1.Entities
 {
     public class Category
     {
@@ -10,6 +11,8 @@ namespace MVC_Project__online_shop_.Entities
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string IconPath { get; set; }
+
+        [InverseProperty("CategoryId")]
         public ICollection<SubCategory> SubCategories { get; set; } = new List<SubCategory>();
     }
 }

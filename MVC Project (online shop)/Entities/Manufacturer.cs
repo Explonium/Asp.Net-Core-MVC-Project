@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace MVC_Project__online_shop_.Entities
+namespace WebApplication1.Entities
 {
     public class Manufacturer
     {
         [Key]
         public Guid Id { get; set; }
-
+        public string Name { get; set; }
         public string ManufacturerUri { get; set; }
-
         public string IconPath { get; set; }
+
+        // Relations
+
+        public ICollection<Product> Products { get; set; } = new List<Product>();
     }
 }

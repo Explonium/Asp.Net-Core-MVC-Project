@@ -1,0 +1,57 @@
+﻿@model Mvc_Project_Client.ViewModels.CitySelectModel
+@{
+    string id = Guid.NewGuid().ToString();
+
+    string cityId = "";
+    string countryId = "";
+
+    if (Model.CityId != null)
+        cityId = Model.CityId.ToString();
+
+    if (Model.CountryId != null)
+        countryId = Model.CountryId.ToString();
+}
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        var country = document.getElementById("@id country");
+        var city = document.getElementById("@id city");
+
+        var countries = document.getElementById("Countries").querySelectorAll('option');
+        var cities = document.getElementById("Cities").querySelectorAll('option');
+
+        giveSelection('@countryId', 'Cities');
+
+        console.log('Test');
+
+        for (var i = 0; i < countries.length; i++) {
+
+            console.log('Test ' + countries[i].innerText + countries[i].getAttribute('data-value'));
+
+            if (countries[i].getAttribute('data-value') === '@countryId') {
+                country.value = countries[i].innerText;
+            }
+        }
+
+        for (var i = 0; i < cities.length; i++) {
+            if (cities[i].getAttribute('data-value') === '@cityId') {
+                city.value = cities[i].innerText;
+            }
+        }
+    });
+</script>
+
+<div class="col">
+    <label for="@id country" class="control-label">Country</label>
+
+    <input list="Countries" id="@id country" onchange="updateDataList(this); giveSelection(document.getElementById('@id country-hidden').value, 'Cities'); getElementById('@id city-hidden').value = ''; getElementById('@id city').value = ''" class="form-control" placeholder="Country" />
+    <input type="hidden" onload="citySelectOnLoad()" name="CountryId" id="@id country-hidden" value="@countryId" />
+</div>
+<div class="col">
+    <label for="@id city" class="control-label">City</label>
+
+    <input list="Cities-Filtered" id="@id city" onchange="updateDataList(this)" class="form-control" placeholder="City" />
+    <input type="hidden" name="CityId" id="@id city-hidden" value="@cityId" />
+</div>

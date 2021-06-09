@@ -1,0 +1,19 @@
+{
+	"message":"User Registration Failed",
+	"errors":{
+		"PasswordRequiresLower":{
+			"value":null,
+			"errors":[{
+				"exception":null,
+				"errorMessage":"Passwords must have at least one lowercase ('a'-'z')."
+			}]
+		},
+		"PasswordRequiresUpper":{
+			"value":null,
+			"errors":[{
+				"exception":null,
+				"errorMessage":"Passwords must have at least one uppercase ('A'-'Z')."
+			}]
+		}
+	}
+}

@@ -1,7 +1,6 @@
-﻿using MVC_Project__online_shop_.Entities;
-using System;
+﻿using System;
 
-namespace MVC_Project__online_shop_.Models
+namespace WebApplication1.Models
 {
     public class SubCategoryReturnModel
     {
